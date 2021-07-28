@@ -26,7 +26,7 @@ const app = {
             return `<li day-index=${index} class="day${index == 0 ? ' active' : ''}">
                 <i class="day-icon" data-feather="sun"></i>
                 <span class="day-name">${daysName[new Date().getDay() + index]}</span>
-                <span class="day-temp">${x.temp.day}</span>
+                <span class="day-temp">${Math.floor(x.temp.day)} °C</span>
             </li>`
         })
         const htmls = html.join('')
