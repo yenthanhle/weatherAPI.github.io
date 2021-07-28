@@ -57,8 +57,8 @@ const app = {
                 description: data.list[i].weather[0].description,
                 humidity: `${data.list[i].humidity} %`,
                 pressure: `${data.list[i].pressure} atm`,
-                mintemp: `${data.list[i].temp.min} °C`,
-                maxtemp: `${data.list[i].temp.max} °C`
+                mintemp: `${Math.floor(data.list[i].temp.min)} °C`,
+                maxtemp: `${Math.floor(data.list[i].temp.max)} °C`
             }
             weathersObject.push(weatherInfor)
         }
