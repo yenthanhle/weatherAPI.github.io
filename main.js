@@ -9,15 +9,12 @@ var daysName = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'
 const app = {
     location: 'Thành phố Hồ Chí Minh',
     day: new Date().toString().split(' '),
-    getData() {
+    getData(callback) {
         fetch(url)
             .then(data => {
                 return data.json()
             })
-            .then(result => {
-                this.loadAllDay(result)
-                this.handleEnvent(result)
-            })
+            .then(callback)
     },
     loadAllDay(data) {
         // Load at firrst time
@@ -78,7 +75,10 @@ const app = {
 
     },
     start() {
-        this.getData()
+        this.getData(resutl => {
+            this.loadAllDay(resutl)
+            this.handleEnvent(resutl)
+        })
     }
 }
 
